@@ -1,0 +1,13 @@
+<idea-plugin>
+    <id>me.cocos.ignite</id>
+    <name>LibGDX Generator</name>
+    <vendor>Cocos</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java-capable</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <moduleBuilder builderClass="me.cocos.ignite.module.IgniteModuleBuilder"/>
+
+    </extensions>
+</idea-plugin>
