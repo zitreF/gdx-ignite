@@ -6,10 +6,9 @@ import com.intellij.ide.util.projectWizard.WizardContext;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.module.ModuleType;
 import com.intellij.openapi.roots.ModifiableRootModel;
-import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
 import com.intellij.openapi.util.IconLoader;
+import me.cocos.ignite.generator.ProjectGenerator;
 import me.cocos.ignite.model.ProjectConfig;
-import me.cocos.ignite.service.GeneratorService;
 import me.cocos.ignite.ui.IgniteWizardStep;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -47,7 +46,7 @@ public class IgniteModuleBuilder extends ModuleBuilder {
 
     @Override
     public @Nullable ModuleWizardStep getCustomOptionsStep(WizardContext context, Disposable parentDisposable) {
-        return new IgniteWizardStep(context);
+        return new IgniteWizardStep();
     }
 
     // TODO: Add 3rd party libraries
@@ -68,8 +67,8 @@ public class IgniteModuleBuilder extends ModuleBuilder {
         if (config.sdk() != null) {
             model.setSdk(config.sdk());
         }
+        ProjectGenerator generator = model.getProject().getService(ProjectGenerator.class);
 
-        GeneratorService generator = new GeneratorService();
         ProjectConfig finalConfig = new ProjectConfig(
                 config.gameName(),
                 config.packageName(),

@@ -1,10 +1,8 @@
 package me.cocos.ignite.ui;
 
 import com.intellij.ide.util.projectWizard.ModuleWizardStep;
-import com.intellij.ide.util.projectWizard.WizardContext;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
-import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.roots.ui.configuration.SdkComboBox;
 import com.intellij.openapi.roots.ui.configuration.SdkComboBoxModel;
 import com.intellij.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel;
@@ -37,12 +35,12 @@ public class IgniteWizardStep extends ModuleWizardStep {
 
     private final JPanel mainPanel;
 
-    public IgniteWizardStep(WizardContext context) {
+    public IgniteWizardStep() {
         this.gameNameField = new JBTextField("MyAwesomeGame");
         this.packageField = new JBTextField("me.cocos.game");
         this.mainClassField = new JBTextField("Main");
 
-        this.sdkComboBox = this.createSdkComboBox(context);
+        this.sdkComboBox = this.createSdkComboBox();
 
         this.desktopBox = new JBCheckBox("Desktop (LWJGL3)", true);
         this.androidBox = new JBCheckBox("Android");
@@ -52,14 +50,10 @@ public class IgniteWizardStep extends ModuleWizardStep {
         this.mainPanel = this.buildUI();
     }
 
-    private SdkComboBox createSdkComboBox(WizardContext context) {
+    private SdkComboBox createSdkComboBox() {
         ProjectSdksModel sdksModel = new ProjectSdksModel();
 
-        Project project = context.getProject();
-        System.out.println(project == null);
-        if (project == null) {
-            project = ProjectManager.getInstance().getDefaultProject();
-        }
+        Project project = ProjectManager.getInstance().getDefaultProject();
 
         sdksModel.reset(project);
 
