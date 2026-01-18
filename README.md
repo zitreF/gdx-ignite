@@ -76,7 +76,6 @@ Contributions are welcome!
 4. Test with `./gradlew runIde`
 5. Submit a Pull Request
 
-### Coding Standards
-- Follow existing code style please
+- Follow existing code style please, refactoring to cleaner code is welcome.
 
 ---
