@@ -1,9 +1,11 @@
 package me.cocos.ignite.template.gradle;
 
 import me.cocos.ignite.model.ProjectConfig;
+import me.cocos.ignite.template.Template;
+
 import java.util.stream.Collectors;
 
-public class SettingsGradleTemplate implements GradleTemplate {
+public class SettingsGradleTemplate implements Template {
 
     @Override
     public String generate(ProjectConfig config) {

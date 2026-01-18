@@ -67,6 +67,7 @@ public class IgniteModuleBuilder extends ModuleBuilder {
         if (config.sdk() != null) {
             model.setSdk(config.sdk());
         }
+
         ProjectGenerator generator = model.getProject().getService(ProjectGenerator.class);
 
         ProjectConfig finalConfig = new ProjectConfig(

@@ -1,8 +1,9 @@
 package me.cocos.ignite.template.java;
 
 import me.cocos.ignite.model.ProjectConfig;
+import me.cocos.ignite.template.Template;
 
-public class Lwjgl3LauncherTemplate implements JavaTemplate {
+public class Lwjgl3LauncherTemplate implements Template {
 
     @Override
     public String generate(ProjectConfig config) {

@@ -2,8 +2,9 @@ package me.cocos.ignite.template.gradle;
 
 import me.cocos.ignite.model.ModuleType;
 import me.cocos.ignite.model.ProjectConfig;
+import me.cocos.ignite.template.Template;
 
-public class RootBuildGradleTemplate implements GradleTemplate {
+public class RootBuildGradleTemplate implements Template {
 
     @Override
     public String generate(ProjectConfig config) {

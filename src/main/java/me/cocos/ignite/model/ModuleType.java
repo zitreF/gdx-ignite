@@ -1,27 +1,18 @@
 package me.cocos.ignite.model;
 
 import me.cocos.ignite.generator.ModuleGenerator;
-import me.cocos.ignite.generator.module.Lwjgl3ModuleGenerator;
-import me.cocos.ignite.template.TemplateFactory;
-
-import java.util.function.Function;
+import me.cocos.ignite.generator.platform.Lwjgl3ModuleGenerator;
 
 public enum ModuleType {
-    DESKTOP("lwjgl3", Lwjgl3ModuleGenerator::new),
-    ANDROID("android", (deps) -> (root, config) -> {
-        throw new UnsupportedOperationException("Android module not yet implemented");
-    }),
-    IOS("ios", (deps) -> (root, config) -> {
-        throw new UnsupportedOperationException("iOS module not yet implemented");
-    }),
-    HTML("html", (deps) -> (root, config) -> {
-        throw new UnsupportedOperationException("HTML module not yet implemented");
-    });
+    DESKTOP("lwjgl3", new Lwjgl3ModuleGenerator()),
+    ANDROID("android", null),
+    IOS("ios", null),
+    HTML("html", null);
 
     private final String directoryName;
-    private final Function<TemplateFactory, ModuleGenerator> generatorFactory;
+    private final ModuleGenerator generatorFactory;
 
-    ModuleType(String directoryName, Function<TemplateFactory, ModuleGenerator> generatorFactory) {
+    ModuleType(String directoryName, ModuleGenerator generatorFactory) {
         this.directoryName = directoryName;
         this.generatorFactory = generatorFactory;
     }
@@ -30,7 +21,7 @@ public enum ModuleType {
         return directoryName;
     }
 
-    public ModuleGenerator createGenerator(TemplateFactory templateFactory) {
-        return generatorFactory.apply(templateFactory);
+    public ModuleGenerator getGeneratorFactory() {
+        return generatorFactory;
     }
 }

@@ -1,8 +1,9 @@
 package me.cocos.ignite.template.java;
 
 import me.cocos.ignite.model.ProjectConfig;
+import me.cocos.ignite.template.Template;
 
-public class CoreGameTemplate implements JavaTemplate {
+public class CoreGameTemplate implements Template {
 
     @Override
     public String generate(ProjectConfig config) {
