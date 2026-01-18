@@ -77,9 +77,6 @@ Contributions are welcome!
 5. Submit a Pull Request
 
 ### Coding Standards
-- Follow existing code style
-- Use OOP principles and design patterns
-- No comments unless requested
-- Use `this` only for method calls and field initialization
+- Follow existing code style please
 
 ---
